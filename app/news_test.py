@@ -1,19 +1,19 @@
-# import unittest
-# from models import news
-# News = news.News
+import unittest
+from models import news
+News = news.News
 
-# class NewsTest(unittest.TestCase):
-#     """
-#     Test Class to test the behaviour of the class
-#     """
-#     def setUp(self):
-#         """
-#         set up method that will run before every test
-#         """
-#         self.new_news = News(1234,'Python Must Be Crazy','A thrilling breaking news','https://image.tmdb.org/t/p/w500/khsjha27hbs',8.5,129993,'Top trending news in the globe by Sir CarlosStone')
+class NewsTest(unittest.TestCase):
+    """
+    Test Class to test the behaviour of the class
+    """
+    def setUp(self):
+        """
+        set up method that will run before every test
+        """
+        self.new_news = News(1234,'Python Must Be Crazy','A thrilling breaking news','https://image.tmdb.org/t/p/w500/khsjha27hbs',8.5,129993,'Top trending news in the globe by Sir CarlosStone')
 
-#     def test_instance(self):
-#         self.assertTrue(isinstance(self.nem_news, News))
+    def test_instance(self):
+        self.assertTrue(isinstance(self.nem_news, News))
 
-# if __name__ == '__main__':
-#     unittest.main()
+if __name__ == '__main__':
+    unittest.main()
