@@ -12,8 +12,8 @@
         
         <h3> Popular News </h3>
          <ul>
-            {% for popular_news in popular %}
-                <li>{{ popular_news.title}}</li>
+            {% for general in news_list %}
+                <li>{{ general .descrition}}</li>
             {% endfor %}
         </ul>
 

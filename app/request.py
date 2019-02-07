@@ -17,14 +17,14 @@ def get_news(category):
 
     with urllib.request.urlopen(get_news_url) as url:
         get_news_data = url.read()
-        get_news_resposen = jsom.loads(get_news_data)
+        get_news_response = json.loads(get_news_data)
 
         news_results = None
 
-        if get_news_response['results']:
-            news_results_list = get_news_response['results']
+        if get_news_response['sources']:
+            news_results_list = get_news_response['sources']
             news_results = process_results(news_results)
-def procee_results(news_list):
+def process_results(news_list):
     """
     Function  that processes the news result and transform them to a list of Objects
 
@@ -45,7 +45,7 @@ def procee_results(news_list):
         publishedAt = news_item.get(publishedAt)
         content = news_item.get(content)
 
-        if poster:
-            news_object = News(author,title,description,url,urlToImage,publishedAt,content)
-            news_results.append(news_object)
+
+        news_object = News(author,title,description,url,urlToImage,publishedAt,content)
+        news_results.append(news_object)
     return news_results        
