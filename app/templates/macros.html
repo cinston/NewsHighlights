@@ -1,0 +1,14 @@
+{% macro displayCatNews(catnews_list)%}
+{% for catnews in catnews_list %}
+<div class="col-md-3">
+    <div class="thumbnail">
+        <div class="updates">
+            <p style="font-weight:bold">{{catnews.name}}</p>
+            <p>{{catnews.description | truncate(50)}}</p>
+            <a href="/update/{{catnews.id}}">View</a>
+        </div>
+    </div>
+</div>
+{% endfor %}
+
+{%endmacro%}

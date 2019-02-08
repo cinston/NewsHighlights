@@ -1,23 +1,69 @@
+{% extends 'base.html'%}
+{% import 'macros.html' as macro%}
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8">
         {% if title %}
-        <title> {{ title }} </title>
+        <title> {{ title }}</title>
         {% else %}
-        <title>This is News_Highlits, Welcome!</title>
+        <title> Get breaking news headlines, and search for articles from over 30,000 news sources and blogs </title>
         {% endif %}
     </head>
     <body>
-        
-        <h3> Popular News </h3>
-         <ul>
-            {% for general in news_list %}
-                <li>{{ general .descrition}}</li>
-            {% endfor %}
-        </ul>
+       <!-- Content block  -->
+      {% block content %} 
+      <div class="container-fluid">
+          <h3 style="color:#0f0f7a;">Top News Stories</h3>
+         <hr>
+         {% for top_article in google_news %}
+         <div class="col-md-2">
+             <div class="thumbnail">
+                 <div class="topnews">
+                     <img src={{top_article.urlToImage}} style="width:273px;height:158px">
+                     <p>{{top_article.title | truncate(50)}}</p>
+                     <a href={{top_article.url}}>Read full story</a>
+                 </div>
+             </div>
+         </div>
+         {% endfor %}
+     </div>
+     <hr>
+        <div class="container-fluid">
+     <h2 style="color:#0f0f7a;">News by category</h2>
+     <hr>
+     <center>
+         <ul class="nav nav-tabs">
+             <li class="active"><a data-toggle="tab" href="#biz">Business news</a></li>
+             <li><a data-toggle="tab" href="#tech">Technology news</a></li>
+             <li><a data-toggle="tab" href="#ent">Entertainment news</a></li>
+             <li><a data-toggle="tab" href="#sprt">Sports news</a></li>
+      </ul>
+     </center>
+     <div class="tab-content">
+        <div class="tab-pane fade in active" id="biz">
+            <ul>
+                 {{ macro.displayCatNews(biz)}}
+             </ul>
+        </div>
+        <div class="tab-pane fade" id="tech">
+             <ul>
+                 {{ macro.displayCatNews(tech)}}
+             </ul>
+        </div>
+        <div class="tab-pane fade" id="ent">
+             <ul>
+                 {{ macro.displayCatNews(ent)}}
+             </ul>
+        </div>
+        <div class="tab-pane fade" id="sprt">
+             <ul>
+                 {{ macro.displayCatNews(sprt)}}
+             </ul>
+        </div>
+    </div>
+    </div>
 
-
+      {% endblock%} 
     </body>
-
 </html>
