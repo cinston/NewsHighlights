@@ -20,7 +20,7 @@ def get_topnews(source):
     """
     Function that gets the json response to our url request
     """
-    get_topnews_url = base_url.format(source,api_key)
+    get_topnews_url = base_url.format(source)
 
     with urllib.request.urlopen(get_topnews_url) as url:
         get_topnews_data = url.read()
@@ -63,7 +63,7 @@ def get_catnews(category):
     """
     Function that gets the json response to our url request
     """
-    get_catnews_url = base2_url.format(category,api_key)
+    get_catnews_url = base2_url.format(category)
 
     with urllib.request.urlopen(get_catnews_url) as url:
         get_catnews_data = url.read()
@@ -102,7 +102,7 @@ def get_updates(id):
     """
     Function that gets the json response to our url request
     """
-    get_updates_url = base3_url.format(id,api_key)
+    get_updates_url = base3_url.format(id)
     print(get_updates_url)
 
     with urllib.request.urlopen(get_updates_url) as url:
