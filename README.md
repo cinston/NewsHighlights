@@ -1,7 +1,5 @@
 # News Highlighter
 
-#### An app for the week 4 project,
-
 2/8/2019
 
 #### By **Winston Carlos**
